@@ -295,24 +295,24 @@ Double_t RooATGCSemiAnalyticPdf_wz_2Dpol2::evaluate() const
     //  ret = P[bin_with_x-1]->Interpolate(v1, v2)*SM_shape;
     switch(type_) {
     case dkglZ:
-      cout<< "######## case 1 dkglZ SemiAnal"<<endl;
+      //      cout<< "######## case 1 dkglZ SemiAnal"<<endl;
       ret = (P[0]->GetBinContent(1,bin_with_x)+P[0]->GetBinContent(2,bin_with_x)*v1+P[0]->GetBinContent(3,bin_with_x)*v2+P[0]->GetBinContent(4,bin_with_x)*v1*v2+P[0]->GetBinContent(5,bin_with_x)*v1*v1+P[0]->GetBinContent(6,bin_with_x)*v2*v2)*SM_shape;
       break;
     case dkzdg1zToCW:
-      cout<<  "######## case 1 dkzdg1zToCW SemiAnal"<<endl;
+      //      cout<<  "######## case 1 dkzdg1zToCW SemiAnal"<<endl;
       ret =(P[0]->GetBinContent(1,bin_with_x)
 	     +(P[0]->GetBinContent(2,bin_with_x)+P[0]->GetBinContent(3,bin_with_x)*s)*v1*MW*MW/2.
 	    +(P[0]->GetBinContent(4,bin_with_x)*s+P[0]->GetBinContent(5,bin_with_x)+P[0]->GetBinContent(6,bin_with_x)*s*s)*v1*MW*MW/2.*v1*MW*MW/2.)*SM_shape;	    
       break;
     case dkzdg1zToCB:
-      cout<<  "######## case 1 dkzdg1zToCB SemiAnal"<<endl;
+      //      cout<<  "######## case 1 dkzdg1zToCB SemiAnal"<<endl;
       ret = (P[0]->GetBinContent(1,bin_with_x)
 	     +P[0]->GetBinContent(2,bin_with_x)*v1*MW*MW*tan2thw/(-2.)
 	     +P[0]->GetBinContent(5,bin_with_x)*v1*MW*MW*tan2thw/(-2.)*v1*MW*MW*tan2thw/(-2.)
 	     )*SM_shape;      
       break;
     case dg1zlZToCWWW:
-      cout<<  "######## case 1 dg1zlZToCWWW SemiAnal"<<endl;
+      //      cout<<  "######## case 1 dg1zlZToCWWW SemiAnal"<<endl;
       ret = (P[0]->GetBinContent(1,bin_with_x)
 	     +P[0]->GetBinContent(3,bin_with_x)*v2*3.*g*g*MW*MW/2.
 	     +P[0]->GetBinContent(6,bin_with_x)*v2*3.*g*g*MW*MW/2.*v2*3.*g*g*MW*MW/2.
@@ -407,24 +407,24 @@ analyticalIntegral(Int_t code, const char* rangeName) const {
 
     switch(type_) {
     case dkglZ:
-      cout<< "######## case 2 dkglZ SemiAnal "<<endl;
+      //      cout<< "######## case 2 dkglZ SemiAnal "<<endl;
       ret += (P[0]->GetBinContent(1,i+1)+P[0]->GetBinContent(2,i+1)*v1+P[0]->GetBinContent(3,i+1)*v2+P[0]->GetBinContent(4,i+1)*v1*v2+P[0]->GetBinContent(5,i+1)*v1*v1+P[0]->GetBinContent(6,i+1)*v2*v2)*integral_basis[rName][i];
       break;
     case dkzdg1zToCW:
-      cout<< "######## case 2 dkzdg1zToCW SemiAnal"<<endl;
+      //      cout<< "######## case 2 dkzdg1zToCW SemiAnal"<<endl;
       //      ret += (P[0]->GetBinContent(1,i+1)+P[0]->GetBinContent(2,i+1)*v1+P[0]->GetBinContent(3,i+1)*v2+P[0]->GetBinContent(4,i+1)*v1*v2+P[0]->GetBinContent(5,i+1)*v1*v1+P[0]->GetBinContent(6,i+1)*v2*v2)*integral_basis[rName][i];
       ret += (P[0]->GetBinContent(1,i+1)
 	     +(P[0]->GetBinContent(2,i+1)+P[0]->GetBinContent(3,i+1)*s)*v1*MW*MW/2.
 	     +(P[0]->GetBinContent(4,i+1)*s+P[0]->GetBinContent(5,i+1)+P[0]->GetBinContent(6,i+1)*s*s)*v1*MW*MW/2.*v1*MW*MW/2.)*integral_basis[rName][i];
       break;
     case dkzdg1zToCB:
-      cout<< "######## case 2 dkzdg1zToCB SemiAnal"<<endl;
+      //      cout<< "######## case 2 dkzdg1zToCB SemiAnal"<<endl;
       ret += (P[0]->GetBinContent(1,i+1)
 	     +P[0]->GetBinContent(2,i+1)*v1*MW*MW*tan2thw/(-2.)
 	     +P[0]->GetBinContent(5,i+1)*v1*MW*MW*tan2thw/(-2.)*v1*MW*MW*tan2thw/(-2.))*integral_basis[rName][i];
       break;
     case dg1zlZToCWWW:
-      cout<< "######## case 2 dg1zlZToCWWW SemiAnal"<<endl;
+      //      cout<< "######## case 2 dg1zlZToCWWW SemiAnal"<<endl;
       ret += (P[0]->GetBinContent(1,i+1)
 	     +P[0]->GetBinContent(3,i+1)*v2*3.*g*g*MW*MW/2.
 	     +P[0]->GetBinContent(6,i+1)*v2*3.*g*g*MW*MW/2.*v2*3.*g*g*MW*MW/2.)*integral_basis[rName][i];
