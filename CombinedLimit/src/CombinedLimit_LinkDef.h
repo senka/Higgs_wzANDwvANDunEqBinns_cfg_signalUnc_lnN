@@ -26,8 +26,10 @@
 #include "../interface/RooATGCFunction_wz.h"
 #include "../interface/RooATGCProcessScaling.h"
 #include "../interface/RooATGCProcessScaling_wz.h"
+#include "../interface/RooATGCProcessScaling_wz_2Dpol2.h"
 #include "../interface/RooATGCSemiAnalyticPdf.h"
 #include "../interface/RooATGCSemiAnalyticPdf_wz.h"
+#include "../interface/RooATGCSemiAnalyticPdf_wz_2Dpol2.h"
 
 #ifdef __CINT__
 #pragma link off all globals;
@@ -131,7 +133,9 @@
 #pragma link C++ class RooATGCFunction_wz+;
 #pragma link C++ class RooATGCProcessScaling+;
 #pragma link C++ class RooATGCProcessScaling_wz+;
+#pragma link C++ class RooATGCProcessScaling_wz_2Dpol2+;
 #pragma link C++ class RooATGCSemiAnalyticPdf+;
 #pragma link C++ class RooATGCSemiAnalyticPdf_wz+;
+#pragma link C++ class RooATGCSemiAnalyticPdf_wz_2Dpol2+;
 
 #endif
