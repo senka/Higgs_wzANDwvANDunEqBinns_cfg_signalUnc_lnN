@@ -282,8 +282,8 @@ Double_t RooATGCProcessScaling_wz_2Dpol2::evaluate() const
     case dg1zlZToCWWW:
       cout<< "######## case 1 dg1zlZToCWWW"<<endl;
       ret +=(P[0]->GetBinContent(1,i+1)
-	     +P[0]->GetBinContent(2,i+1)*v1*3.*g*g*MW*MW/2.
-	     +P[0]->GetBinContent(5,i+1)*v1*3.*g*g*MW*MW/2.*v1*3.*g*g*MW*MW/2.)*integral_basis[i];
+	     +P[0]->GetBinContent(3,i+1)*v2*3.*g*g*MW*MW/2.
+	     +P[0]->GetBinContent(6,i+1)*v2*3.*g*g*MW*MW/2.*v2*3.*g*g*MW*MW/2.)*integral_basis[i];
       break;
     default:
       assert(NULL && "invalid limit type!");
