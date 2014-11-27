@@ -24,7 +24,7 @@ public:
 protected:
   virtual bool runSpecific(RooWorkspace *w, RooStats::ModelConfig *mc_s, RooStats::ModelConfig *mc_b, RooAbsData &data, double &limit, double &limitErr, const double *hint);
 
-  enum Algo { None, Singles, Cross, Grid, RandomPoints, Contour2D, Stitch2D };
+  enum Algo { None, Singles, Cross, Grid, RandomPoints, Contour2D, Stitch2D, FixedPoint };
   static Algo algo_;
 
   enum GridType { G1x1, G3x3 };
@@ -36,8 +36,6 @@ protected:
   static RooArgList                poiList_; 
   static unsigned int              nOtherFloatingPoi_; // keep a count of other POIs that we're ignoring, for proper chisquare normalization
   static float                     deltaNLL_;
-  static float                     L_;
-  static float                     L0_;
 
   // options    
   static unsigned int points_, firstPoint_, lastPoint_;
@@ -48,6 +46,17 @@ protected:
   static bool loadedSnapshot_;
   static float maxDeltaNLLForProf_;
 
+  static std::string saveSpecifiedFuncs_;
+  static std::string saveSpecifiedNuis_;
+  static std::vector<std::string>  specifiedFuncNames_;
+  static std::vector<RooAbsReal*> specifiedFunc_;
+  static std::vector<float>        specifiedFuncVals_;
+  static RooArgList                specifiedFuncList_;
+  static std::vector<std::string>  specifiedNuis_;
+  static std::vector<RooRealVar *> specifiedVars_;
+  static std::vector<float>        specifiedVals_;
+  static RooArgList                specifiedList_;
+  static bool saveInactivePOI_;
   // initialize variables
   void initOnce(RooWorkspace *w, RooStats::ModelConfig *mc_s) ;
 
@@ -55,6 +64,7 @@ protected:
   void doSingles(RooFitResult &res) ;
   void doGrid(RooAbsReal &nll) ;
   void doRandomPoints(RooAbsReal &nll) ;
+  void doFixedPoint(RooWorkspace *w,RooAbsReal &nll) ;
   void doContour2D(RooAbsReal &nll) ;
   void doStitch2D(RooAbsReal &nll) ;
 

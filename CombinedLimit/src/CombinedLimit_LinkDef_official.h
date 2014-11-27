@@ -34,6 +34,7 @@
 #include "../interface/RooATGCSemiAnalyticPdf_wz.h"
 #include "../interface/RooATGCSemiAnalyticPdf_wz_2Dpol2.h"
 
+
 #ifdef __CINT__
 #pragma link off all globals;
 #pragma link off all classes;
